@@ -52,20 +52,20 @@ public class Wolfinn {
 
     static void populateData(Statement st) throws SQLException {
 
-        System.out.println("Adding services");
+        System.out.println("Adding into services");
         st.executeUpdate("INSERT INTO services(service_id, name, price) VALUES(1, 'phone bills', 5.00)");
         st.executeUpdate("INSERT INTO services(service_id, name, price) VALUES(2, 'dry cleaning', 16.00)");
         st.executeUpdate("INSERT INTO services(service_id, name, price) VALUES(3, 'gyms', 15.00)");
         st.executeUpdate("INSERT INTO services(service_id, name, price) VALUES(4, 'room service', 10.00)");
         st.executeUpdate("INSERT INTO services(service_id, name, price) VALUES(5, 'special requests', 20.00)");
 
-        System.out.println("Adding hotels");
+        System.out.println("Adding into hotels");
         st.executeUpdate("INSERT INTO hotels(hotel_id, name, phone_number, hotel_address) VALUES(1, 'Hotel A', '919', '21 ABC St, Raleigh NC 27')");
         st.executeUpdate("INSERT INTO hotels(hotel_id, name, phone_number, hotel_address) VALUES(2, 'Hotel B', '718', '25 XYZ St, Rochester NY 54')");
         st.executeUpdate("INSERT INTO hotels(hotel_id, name, phone_number, hotel_address) VALUES(3, 'Hotel C', '984', '29 PQR St, Greensboro NC 27')");
         st.executeUpdate("INSERT INTO hotels(hotel_id, name, phone_number, hotel_address) VALUES(4, 'Hotel D', '920', '28 GHW St, Raleigh NC 32')");
 
-        System.out.println("Adding rooms");
+        System.out.println("Adding into rooms");
         st.executeUpdate("INSERT INTO rooms(room_number, category, rate, availability, max_occupancy, hotel_id) VALUES(1, 'Economy', 100.00, TRUE, 1, 1)");
         st.executeUpdate("INSERT INTO rooms(room_number, category, rate, availability, max_occupancy, hotel_id) VALUES(2, 'Deluxe', 200.00, TRUE, 2, 1)");
         st.executeUpdate("INSERT INTO rooms(room_number, category, rate, availability, max_occupancy, hotel_id) VALUES(3, 'Economy', 100.00, TRUE, 1, 2)");
@@ -73,6 +73,28 @@ public class Wolfinn {
         st.executeUpdate("INSERT INTO rooms(room_number, category, rate, availability, max_occupancy, hotel_id) VALUES(1, 'Presidential', 5000.00, TRUE, 4, 4)");
         st.executeUpdate("INSERT INTO rooms(room_number, category, rate, availability, max_occupancy, hotel_id) VALUES(5, 'Deluxe', 200.00, TRUE, 2, 1)");
 
+        System.out.println("Adding into staff");
+        st.executeUpdate("INSERT INTO staff(staff_id, staff_address, age, phone_number, job_title, hotel_id, name) VALUES(100, '90 ABC St, Raleigh NC 27', 40, 654, 'Manager', 1, 'Mary')");
+        st.executeUpdate("INSERT INTO staff(staff_id, staff_address, age, phone_number, job_title, hotel_id, name) VALUES(101, '798 XYZ St, Rochester NY 54', 45, 564, 'Manager', 2, 'John')");
+        st.executeUpdate("INSERT INTO staff(staff_id, staff_address, age, phone_number, job_title, hotel_id, name) VALUES(102, '351 MH St, Greensboro NC 27', 55, 546, 'Manager', 3, 'Carol')");
+        st.executeUpdate("INSERT INTO staff(staff_id, staff_address, age, phone_number, job_title, hotel_id, name) VALUES(103, '49 ABC St, Raleigh NC 27', 55, 546, 'Front Desk', 1, 'Emma')");
+        st.executeUpdate("INSERT INTO staff(staff_id, staff_address, age, phone_number, job_title, hotel_id, name) VALUES(104, '425 RG St, Raleigh NC 27', 55, 777, 'Catering', 1, 'Ava')");
+        st.executeUpdate("INSERT INTO staff(staff_id, staff_address, age, phone_number, job_title, hotel_id, name) VALUES(105, '475 RG St, Raleigh NC 27', 52, 724, 'Manager', 4, 'Peter')");
+        st.executeUpdate("INSERT INTO staff(staff_id, staff_address, age, phone_number, job_title, hotel_id, name) VALUES(106, '325 PD St, Raleigh NC 27', 27, 799, 'Front Desk', 4, 'Olivia')");
+
+        System.out.println("Adding into customers");
+        st.executeUpdate("INSERT INTO customers(ssn, name, dob, email, phone) VALUES(5939846, 'David', '1980-01-30', 'david@gmail.com', 123)");
+        st.executeUpdate("INSERT INTO customers(ssn, name, dob, email, phone) VALUES(7778352, 'Sarah', '1971-01-30', 'sarah@gmail.com', 456)");
+        st.executeUpdate("INSERT INTO customers(ssn, name, dob, email, phone) VALUES(8589430, 'Joseph', '1987-01-30', 'joseph@gmail.com', 789)");
+        st.executeUpdate("INSERT INTO customers(ssn, name, dob, email, phone) VALUES(4409328, 'Lucy', '1985-01-30', 'lucy@gmail.com', 213)");
+
+        System.out.println("Adding into check ins");
+        st.executeUpdate("INSERT INTO check_in(check_in_id, number_of_guests, check_in_date_time, check_out_date_time, room_number, ssn, staff_id) VALUES(1, 1, '2017-05-10 15:17:00', '2017-05-13 10:22:00', 1, 5939846, 103)");
+        st.executeUpdate("INSERT INTO check_in(check_in_id, number_of_guests, check_in_date_time, check_out_date_time, room_number, ssn, staff_id) VALUES(2, 2, '2017-05-10 16:11:00', '2017-05-13 09:27:00', 2, 7778352, 103)");
+        st.executeUpdate("INSERT INTO check_in(check_in_id, number_of_guests, check_in_date_time, check_out_date_time, room_number, ssn, staff_id) VALUES(3, 1, '2016-05-10 15:45:00', '2016-05-14 11:10:00', 3, 8589430, 101)");
+        st.executeUpdate("INSERT INTO check_in(check_in_id, number_of_guests, check_in_date_time, check_out_date_time, room_number, ssn, staff_id) VALUES(4, 2, '2018-05-10 14:30:00', '2018-05-12 10:00:00', 2, 4409328, 102)");
+
+        System.out.println("Adding into presidential suites");
     }
 
     static void dropTables(Statement st) throws SQLException {
