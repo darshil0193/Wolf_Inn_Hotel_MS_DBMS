@@ -97,7 +97,7 @@ public class Wolfinn {
         System.out.println("Adding into presidential suites");
 
         System.out.println("Adding into billing");
-        st.executeUpdate("INSERT INTO billing(bill_id, check_in_id, total_charge, billing_address, card_number, is_hotel_card) VALUES(1, 1, 375.69, '980 TRT St, Raleigh NC', '1052', FALSE)");
+        st.executeUpdate("INSERT INTO billing(bill_id, check_in_id, total_charge, billing_address, card_number, is_hotel_card) VALUES(1, 1, 375.68, '980 TRT St, Raleigh NC', '1052', FALSE)");
         st.executeUpdate("INSERT INTO billing(bill_id, check_in_id, total_charge, billing_address, card_number, is_hotel_card) VALUES(2, 2, 663.12, '7720 MHT St, Greensboro NC', '3020', TRUE)");
         st.executeUpdate("INSERT INTO billing(bill_id, check_in_id, total_charge, billing_address, card_number, is_hotel_card) VALUES(3, 3, 465.35, '231 DRY St, Rochester NY 78', '2497', FALSE)");
         st.executeUpdate("INSERT INTO billing(bill_id, check_in_id, total_charge, billing_address) VALUES(4, 4, 2275.68, '24 BST Dr, Dallas TX 14')");
