@@ -125,17 +125,17 @@ public class Wolfinn {
     static void dropTables(Statement st) throws SQLException {
 
             System.out.println("Starting DROP tables.");
-            st.executeUpdate("DROP TABLE managed_by CASCADE;");
-            st.executeUpdate("DROP TABLE check_in_services CASCADE;");
-            st.executeUpdate("DROP TABLE address_gives_city CASCADE;");
-            st.executeUpdate("DROP TABLE billing CASCADE;");
-            st.executeUpdate("DROP TABLE presidential_suite CASCADE;");
-            st.executeUpdate("DROP TABLE check_in CASCADE;");
-            st.executeUpdate("DROP TABLE customers CASCADE;");
-            st.executeUpdate("DROP TABLE staff CASCADE;");
-            st.executeUpdate("DROP TABLE rooms CASCADE;");
-            st.executeUpdate("DROP TABLE hotels CASCADE;");
-            st.executeUpdate("DROP TABLE services CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS managed_by CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS check_in_services CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS address_gives_city CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS billing CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS presidential_suite CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS check_in CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS customers CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS staff CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS rooms CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS hotels CASCADE;");
+            st.executeUpdate("DROP TABLE IF EXISTS services CASCADE;");
             System.out.println("DROP tables done.");
 
     }
