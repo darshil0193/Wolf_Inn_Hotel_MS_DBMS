@@ -567,7 +567,366 @@ public class TasksAndOperations {
 							e.printStackTrace();
 						}
 				}
+				// 6. Maintaining Service Records
+                // a. Enter service
+                // InsertServiceForCheckin(stmt, staff_id, check_in_id, service_id);
+                
+                // b. Update service
+                // UpdateService(stmt, parameter, value, service_id);
 			}
+		case 6 : if(choice2 == 1) {
+				System.out.println("Enter staff id: ");
+				String staff_id = br.readLine();
+				System.out.println("Enter check-in id: ");
+				String check_in_id = br.readLine();
+				System.out.println("Enter service_id: ");
+				String service_id = br.readLine();
+				
+				try {
+					InsertServiceForCheckin(stmt, staff_id, check_in_id, service_id);
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				
+				}
+		
+				if(choice2 == 2) {
+					System.out.println("Enter Column to update: ");
+					String parameter = br.readLine();
+					System.out.println("Enter value: ");
+					String value = br.readLine();
+					System.out.println("Enter service id: ");
+					String service_id = br.readLine();
+					
+//					try {
+//						//UpdateServiceForCheckIn(stmt, parameter, value, service_id); //*****************No such function present!!!*****************
+//						} catch(SQLException e) {
+//							e.printStackTrace();
+//						}
+				}
+				
+				// 7. Maintaining billing accounts
+                // a. Create billing account
+                // CreateBillingEntry(stmt, total_charge, card_number, billing_address, is_hotel_card, check_in_id);
+                
+                
+                
+                
+                
+               
+                
+                // 
+				
+		case 7 : if(choice2 == 1) {
+					System.out.println("Enter total charge: ");
+					String total_charge = br.readLine();
+					System.out.println("Enter card number: ");
+					String card_number = br.readLine();
+					System.out.println("Enter billing address: ");
+					String billing_address = br.readLine();
+					System.out.println("Hotel card? [Y/N] ");
+					String card = br.readLine();
+					boolean is_hotel_card = false;
+					if(card.equalsIgnoreCase("y")) {
+						is_hotel_card = true;
+					}
+					System.out.println("Enter check-in id: ");
+					String check_in_id = br.readLine();
+					
+					try {
+						CreateBillingEntry(stmt, total_charge, card_number, billing_address, is_hotel_card, check_in_id);
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+		// b. Paid using hotel card
+        // BillPaidUsingHotelCard(stmt, total_charge, card_number, billing_address, is_hotel_card, check_in_id);
+				if(choice2 == 2) {
+					System.out.println("Enter total charge: ");
+					String total_charge = br.readLine();
+					System.out.println("Enter card number: ");
+					String card_number = br.readLine();
+					System.out.println("Enter billing address: ");
+					String billing_address = br.readLine();
+					System.out.println("Hotel card? [Y/N] ");
+					String card = br.readLine();
+					boolean is_hotel_card = false;
+					if(card.equalsIgnoreCase("y")) {
+						is_hotel_card = true;
+					}
+					System.out.println("Enter check-in id: ");
+					String check_in_id = br.readLine();
+					
+					try {
+						BillPaidUsingHotelCard(stmt, total_charge, card_number, billing_address, is_hotel_card, check_in_id);
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				
+				// c. Paid using other card
+                // BillPaidUsingCard(stmt, total_charge, card_number, billing_address, is_hotel_card, check_in_id);
+				
+				if(choice2 == 3) {
+					System.out.println("Enter total charge: ");
+					String total_charge = br.readLine();
+					System.out.println("Enter card number: ");
+					String card_number = br.readLine();
+					System.out.println("Enter billing address: ");
+					String billing_address = br.readLine();
+					System.out.println("Hotel card? [Y/N] ");
+					String card = br.readLine();
+					boolean is_hotel_card = false;
+					if(card.equalsIgnoreCase("y")) {
+						is_hotel_card = true;
+					}
+					System.out.println("Enter check-in id: ");
+					String check_in_id = br.readLine();
+					
+					try {
+						BillPaidUsingCard(stmt, total_charge, card_number, billing_address, is_hotel_card, check_in_id);
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				
+				 // d. Paid using cash
+                // BillPaidUsingCash(stmt, total_charge, card_number, billing_address, is_hotel_card, check_in_id);
+				
+				if(choice2 == 4) {
+					System.out.println("Enter total charge: ");
+					String total_charge = br.readLine();
+					System.out.println("Enter card number: ");
+					String card_number = br.readLine();
+					System.out.println("Enter billing address: ");
+					String billing_address = br.readLine();
+					System.out.println("Hotel card? [Y/N] ");
+					String card = br.readLine();
+					boolean is_hotel_card = false;
+					if(card.equalsIgnoreCase("y")) {
+						is_hotel_card = true;
+					}
+					System.out.println("Enter check-in id: ");
+					String check_in_id = br.readLine();
+					
+					try {
+						BillPaidUsingCash(stmt, total_charge, card_number, billing_address, is_hotel_card, check_in_id);
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				
+//				e Retrieve bill amount
+                // ResultSet BillAmount =  RetriveBillAmount(stmt, check_in_id);
+				
+				if(choice2 == 5) {
+					System.out.println("Enter check-in id: ");
+					String check_in_id = br.readLine();
+					
+					try {
+						ResultSet BillAmount =  RetriveBillAmount(stmt, check_in_id);
+						System.out.print(BillAmount.getString("total_charge"));
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				// 8. Reports
+                // a. Report occupancy by hotel
+                // ResultSet OccupancyByHotel =  ReportOccupancyByHotel(stmt);
+                
+                
+                
+                // c. Report occupancy by date range (grouped by hotel)
+                // ResultSet OccupancyByDateRangeGroupedByHotel =  ReportOccupancyByDateRangeGroupedByHotel(stmt, to, from);
+                
+               
+                
+                
+                
+                
+                
+                
+                
+                
+               
+                
+                
+                
+                // k. Create Itemized Bill Receipt
+                // ResultSet ItemizedBill = CreateItemizedBill(stmt, check_in_id);
+		case 8 : if(choice2 == 1) {
+					try {
+						ResultSet OccupancyByHotel =  ReportOccupancyByHotel(stmt);
+						while(OccupancyByHotel.next()) {
+							System.out.print(OccupancyByHotel.getString("hotel_id"));
+							System.out.println(OccupancyByHotel.getString("SUM(number_of_guests)"));
+						}
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				
+		// b. Report occupancy by room type
+        // ResultSet OccupancyByRoomType =  ReportOccupancyByRoomType(stmt);
+				if(choice2 == 2) {
+					try {
+						 ResultSet OccupancyByRoomType =  ReportOccupancyByRoomType(stmt);
+						 while(OccupancyByRoomType.next()) {
+							 System.out.print(OccupancyByRoomType.getString("category"));
+							 System.out.println(OccupancyByRoomType.getString("SUM(number_of_guests)"));
+						 }
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				// c. Report occupancy by date range (grouped by hotel)
+                // ResultSet OccupancyByDateRangeGroupedByHotel =  ReportOccupancyByDateRangeGroupedByHotel(stmt, to, from);
+				if(choice2 == 3) {
+					System.out.println("Enter start date  YYYY-MM-DD: ");
+					String from = br.readLine();
+					System.out.println("Enter end date  YYYY-MM-DD: ");
+					String to = br.readLine();
+					try {
+						ResultSet OccupancyByDateRangeGroupedByHotel =  ReportOccupancyByDateRangeGroupedByHotel(stmt, to, from);
+						//hotel_id, check_in_date_time, check_out_date_time, sum(number_of_guests)
+						while(OccupancyByDateRangeGroupedByHotel.next()) {
+							System.out.print(OccupancyByDateRangeGroupedByHotel.getString("hotel_id"));
+							System.out.print(" ");
+							System.out.print(OccupancyByDateRangeGroupedByHotel.getString("check_in_date_time"));
+							System.out.print(" ");
+							System.out.print(OccupancyByDateRangeGroupedByHotel.getString("check_out_date_time"));
+							System.out.print(" ");
+							System.out.println(OccupancyByDateRangeGroupedByHotel.getString("sum(number_of_guests)"));
+						}
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				 // d. Report occupancy by date range
+                // ResultSet OccupancyByDateRange =  ReportOccupancyByDateRange(stmt, to, from);
+				if(choice2 == 4) {
+					System.out.println("Enter start date  YYYY-MM-DD: ");
+					String from = br.readLine();
+					System.out.println("Enter end date  YYYY-MM-DD: ");
+					String to = br.readLine();
+					try {
+						ResultSet OccupancyByDateRange =  ReportOccupancyByDateRange(stmt, to, from);
+						while(OccupancyByDateRange.next()) {
+							//"select sum(number_of_guests)
+							System.out.println(OccupancyByDateRange.getString("sum(number_of_guests)"));
+						}
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				// e. Report occupancy by city
+                // ResultSet OccupancyByCity =  ReportOccupancyByCity(stmt);
+				if(choice2 == 5) {
+					try {
+						ResultSet OccupancyByCity =  ReportOccupancyByCity(stmt);
+						while(OccupancyByCity.next()) {
+							//"SELECT city, sum(number_of_guests)
+							System.out.println(OccupancyByCity.getString("city"));
+							System.out.print(" ");
+							System.out.println(OccupancyByCity.getString("sum(number_of_guests)"));
+						}
+					} catch(SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				// f. Report total occupancy
+                // ResultSet TotalOccupancy =  ReportTotalOccupancy(stmt);
+                if(choice2 == 6) {
+                	try {
+                		ResultSet TotalOccupancy =  ReportTotalOccupancy(stmt);
+                		while(TotalOccupancy.next()) {
+                			System.out.println(TotalOccupancy.getString("sum(number_of_guests)"));
+                		}
+                	} catch(SQLException e) {
+                		e.printStackTrace();
+                	}
+                }
+                
+             // g. Report percentage of room occupied
+                // ResultSet PercentageOfRoomOccupied =  ReportPercentageOfRoomOccupied(stmt);
+                
+               if(choice2 == 7) {
+            	   try {
+            		   ResultSet PercentageOfRoomOccupied =  ReportPercentageOfRoomOccupied(stmt);
+            		   while(PercentageOfRoomOccupied.next()) {
+            			   System.out.println(PercentageOfRoomOccupied.getString("percentage_rooms_occupied"));
+            		   }
+            	   } catch(SQLException e) {
+            		   e.printStackTrace();
+            	   }
+               }
+               
+            // h. Information on staff grouped by their role
+               // ResultSet InfoOnServingStaff = ReportInfoOnServingStaff(stmt);
+               if(choice2 == 8) {
+            	   try {
+            		   ResultSet InfoOnServingStaff = ReportInfoOnServingStaff(stmt);
+            		   //SELECT job_title, count(*), avg(age)
+            		   while(InfoOnServingStaff.next()) {
+            			   System.out.print(InfoOnServingStaff.getString("job_title"));
+            			   System.out.print(" ");
+            			   System.out.print(InfoOnServingStaff.getString("count(*)"));
+            			   System.out.print(" ");
+            			   System.out.println(InfoOnServingStaff.getString("avg(age)"));
+            		   }
+            	   } catch(SQLException e) {
+            		   e.printStackTrace();
+            	   }
+               }
+               // i. Staff members serving a particular customer
+               // ResultSet StaffServingCustomer = ReportStaffServingCustomer(stmt, ssn)
+               if(choice2 == 9) {
+            	   System.out.println("Enter SSN : ");
+        		   String ssn = br.readLine();
+            	   try {
+            		   ResultSet StaffServingCustomer = ReportStaffServingCustomer(stmt, ssn);
+            		   while(StaffServingCustomer.next()) {
+            			   System.out.print(StaffServingCustomer.getString("name"));
+            		   }
+            	   }catch(SQLException e) {
+            		   e.printStackTrace();
+            	   }
+               }
+               
+            // j. Revenue generated by hotels
+               // ResultSet RevenueByHotels = ReportRevenueByHotels(stmt);
+               if(choice2 == 10) {
+            	   try {
+            		   ResultSet RevenueByHotels = ReportRevenueByHotels(stmt);
+            		   while(RevenueByHotels.next()) {
+            			   //hotels.hotel_id, hotels.name, sum(total_charge)
+            			   System.out.print(RevenueByHotels.getString("hotels.hotel_id"));
+            			   System.out.print(" ");
+            			   System.out.print(RevenueByHotels.getString("hotels.name"));
+            			   System.out.print(" ");
+            			   System.out.println(RevenueByHotels.getString("sum(total_charge)"));
+            		   }
+            	   }catch(SQLException e) {
+            		   e.printStackTrace();
+            	   }
+               }
+               
+            // k. Create Itemized Bill Receipt
+               // ResultSet ItemizedBill = CreateItemizedBill(stmt, check_in_id);
+               if(choice2 == 11) {
+            	   System.out.println("Enter Check-in id : ");
+            	   String check_in_id = br.readLine();
+            	   try {
+            		   ResultSet ItemizedBill = CreateItemizedBill(stmt, check_in_id);
+            		   while(ItemizedBill.next()) {
+            			   System.out.print(ItemizedBill.getString("name"));
+            			   System.out.print(" ");
+            			   System.out.print(ItemizedBill.getString("amount"));
+            		   }
+            	   }catch(SQLException e) {
+            		   e.printStackTrace();
+            	   }
+               }
 		}
 	}
 
