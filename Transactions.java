@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,6 +18,14 @@ public class Transactions {
 	public static void main(String[] args) {
 
 		initialize();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		while(true) {
+			System.out.println("1. Enter Customer Information \n"
+					+ "2. Enter \n"
+					+ "3. Enter"
+					+ "4. Enter");
+			
+		}
 
 		
 	}
@@ -28,7 +38,7 @@ public class Transactions {
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}catch(SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace();	
 		}
 	}
 	
