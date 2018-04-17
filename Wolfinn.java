@@ -276,9 +276,6 @@ public class Wolfinn {
                 "CONSTRAINT staff_managed_fk FOREIGN KEY(staff_id) REFERENCES staff(staff_id)," +
                 "CONSTRAINT managed_by_key PRIMARY KEY(hotel_id, staff_id)" +
                 ");");
-
-        System.out.println("CREATE tables done.");
-
     }
 
     //Closing the connection
