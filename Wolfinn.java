@@ -146,13 +146,13 @@ public class Wolfinn {
 
             //Creating services table
             st.executeUpdate("CREATE TABLE services(" +
-                    "service_id INT PRIMARY KEY," +
+                    "service_id INT PRIMARY KEY AUTO_INCREMENT," +
                     "name VARCHAR(50) NOT NULL," +
                     "price FLOAT NOT NULL" +
                     ")");
 
             st.executeUpdate("CREATE TABLE hotels(" +
-                    "hotel_id INT PRIMARY KEY," +
+                    "hotel_id INT PRIMARY KEY AUTO_INCREMENT," +
                     "name VARCHAR(50) NOT NULL," +
                     "hotel_address VARCHAR(255) NOT NULL UNIQUE," +
                     "phone_number VARCHAR(10) NOT NULL" +
@@ -170,7 +170,7 @@ public class Wolfinn {
                     ");");
 
             st.executeUpdate("CREATE TABLE staff(" +
-                    "staff_id INT PRIMARY KEY," +
+                    "staff_id INT PRIMARY KEY AUTO_INCREMENT," +
                     "name VARCHAR(50) NOT NULL," +
                     "age INT NOT NULL," +
                     "job_title VARCHAR(50) NOT NULL," +
@@ -190,7 +190,7 @@ public class Wolfinn {
                     ");");
 
             st.executeUpdate("CREATE TABLE check_in(" +
-                    "check_in_id INT PRIMARY KEY," +
+                    "check_in_id INT PRIMARY KEY AUTO_INCREMENT," +
                     "ssn INT NOT NULL," +
                     "staff_id INT NOT NULL," +
                     "room_number INT NOT NULL," +
@@ -215,7 +215,7 @@ public class Wolfinn {
                     ");");
 
             st.executeUpdate("CREATE TABLE billing(" +
-                    "bill_id INT PRIMARY KEY," +
+                    "bill_id INT PRIMARY KEY AUTO_INCREMENT," +
                     "check_in_id INT NOT NULL," +
                     "total_charge FLOAT NOT NULL," +
                     "billing_address VARCHAR(255) NOT NULL," +
