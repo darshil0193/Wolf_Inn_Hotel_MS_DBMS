@@ -58,6 +58,8 @@ public class Transactions {
 //*************** Finally set auto commit to true *******************
 		}
 
+		close(statement);
+		close(connection);
 
 	}
 
@@ -165,6 +167,28 @@ public class Transactions {
 			statement = connection.createStatement();
 		}catch(SQLException e) {
 			e.printStackTrace();
+		}
+	}
+
+	//Closing the connection
+	static void close(Connection conn) {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (Throwable whatever) {
+				whatever.printStackTrace();
+			}
+		}
+	}
+
+	//Closing the statement
+	static void close(Statement st) {
+		if (st != null) {
+			try {
+				st.close();
+			} catch (Throwable whatever) {
+				whatever.printStackTrace();
+			}
 		}
 	}
 }
