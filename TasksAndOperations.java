@@ -56,6 +56,7 @@ public class TasksAndOperations extends Wolfinn {
     static void actionMenu(Statement stmt) throws Exception {
         while (true) {
 
+            System.out.print("\n");
             System.out.println("1. Hotel \n"
                     + "2. Rooms \n"
                     + "3. Staff \n"
@@ -64,9 +65,12 @@ public class TasksAndOperations extends Wolfinn {
                     + "6. Maintaining Service Records \n"
                     + "7. Maintaning Billing Accounts \n"
                     + "8. Reports");
+
+            System.out.print("Please provide your input: ");
             String input = br.readLine();
             if (input.matches("[1-8]")) {
                 System.out.println(getSubMenuItems(Integer.parseInt(input)));
+                System.out.print("Please provide your input: ");
                 int input1 = Integer.parseInt(br.readLine());
                 findAction(Integer.parseInt(input), input1, stmt);
             } else {
@@ -200,11 +204,12 @@ public class TasksAndOperations extends Wolfinn {
     }
 
     static String getSubMenuItems(int choice) {
+        System.out.print("\n");
         switch (choice) {
             case 1:
                 return "1. Enter Hotel Information \n" +
                         "2. Update Hotel Information \n" +
-                        "3. Delete Hotel Information \n";
+                        "3. Delete Hotel Information";
             case 2:
                 return "1. Enter Room Information \n" +
                         "2. Update Room Information \n" +
@@ -249,17 +254,20 @@ public class TasksAndOperations extends Wolfinn {
 
     static void findAction(int choice1, int choice2, Statement stmt) throws IOException {
 
+        System.out.print("\n");
         switch (choice1) {
             case 1:
                 if (choice2 == 1) {
-                    System.out.println("Enter Hotel name : \n");
+                    System.out.print("Enter Hotel name: ");
                     String name = br.readLine();
-                    System.out.println("Enter Phone number \n");
+                    System.out.print("Enter Phone number: ");
                     String number = br.readLine();
-                    System.out.println("Enter Address \n");
+                    System.out.print("Enter Address: ");
                     String address = br.readLine();
                     try {
+                        System.out.println("Adding a New Hotel");
                         EnterHotelInformation(stmt, name, number, address);
+                        System.out.println("Added a New Hotel Successfully");
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -956,8 +964,6 @@ public class TasksAndOperations extends Wolfinn {
     }
 
     static void EnterHotelInformation(Statement stmt, String name, String phone_number, String hotel_address) throws SQLException {
-
-        System.out.println("Adding a New Hotel");
         stmt.execute("INSERT INTO hotels(name, phone_number, hotel_address) VALUES('" + name + "', '" + phone_number + "', '" + hotel_address + "');");
     }
 
