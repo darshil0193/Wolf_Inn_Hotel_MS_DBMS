@@ -155,7 +155,7 @@ public class TasksAndOperations extends Wolfinn {
                     System.out.print("Enter City: ");
                     String city = br.readLine();
                     try {
-                        System.out.println("Adding a New Hotel");
+                        System.out.println("\nAdding a New Hotel");
                         EnterHotelInformation(stmt, name, number, address);
                         System.out.println("Added a New Hotel Successfully");
                     } catch (SQLException e) {
@@ -163,24 +163,28 @@ public class TasksAndOperations extends Wolfinn {
                     }
                 }
                 if (choice2 == 2) {
-                    System.out.println("Enter hotel id :");
+                    System.out.print("Enter hotel id: ");
                     String id = br.readLine();
-                    System.out.println("Enter the column name to update");
+                    System.out.print("Enter the column name to update: ");
                     String parameter = br.readLine();
-                    System.out.println("Enter new value");
+                    System.out.print("Enter new value: ");
                     String value = br.readLine();
                     try {
+                        System.out.println("\nUpdating Hotel information with Hotel ID :'" + id);
                         UpdateHotelInformation(stmt, id, parameter, value);
+                        System.out.println("Updated Successfully");
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
 
                 }
                 if (choice2 == 3) {
-                    System.out.println("Enter Hotel id:");
+                    System.out.print("Enter Hotel id: ");
                     String id = br.readLine();
                     try {
+                        System.out.println("\nDeleting Hotel Information with Hotel ID: " + id);
                         DeleteHotelInformation(stmt, id);
+                        System.out.println("Deleted Successfully");
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -188,36 +192,38 @@ public class TasksAndOperations extends Wolfinn {
                 break;
             case 2:
                 if (choice2 == 1) {
-                    System.out.println("Enter Room Number : ");
+                    System.out.print("Enter Room Number: ");
                     String number = br.readLine();
-                    System.out.println("Enter category: ");
+                    System.out.print("Enter category: ");
                     String category = br.readLine();
-                    System.out.println("Enter rate");
+                    System.out.print("Enter rate: ");
                     String rate = br.readLine();
-                    System.out.println("Enter Availability [T/F]");
+                    System.out.print("Enter Availability [T/F]: ");
                     String avail = br.readLine();
                     boolean availability = false;
                     if (avail.equalsIgnoreCase("t")) {
                         availability = true;
                     }
-                    System.out.println("Enter max occupancy");
+                    System.out.print("Enter max occupancy: ");
                     String max_occupancy = br.readLine();
-                    System.out.println("Enter Hotel ID");
+                    System.out.print("Enter Hotel ID: ");
                     String id = br.readLine();
                     try {
+                        System.out.println("\nAdding a new Room to Hotel ID:'" + id);
                         EnterRoomInformation(stmt, number, category, Integer.parseInt(rate), availability, max_occupancy, id);
+                        System.out.println("Room added successfully");
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
                 }
                 if (choice2 == 2) {
-                    System.out.println("Enter Hotel id : ");
+                    System.out.print("Enter Hotel id: ");
                     String id = br.readLine();
-                    System.out.println("Enter Room Number : ");
+                    System.out.print("Enter Room Number: ");
                     String number = br.readLine();
-                    System.out.println("Enter Column name : ");
+                    System.out.print("Enter Column name: ");
                     String parameter = br.readLine();
-                    System.out.println("Enter value : ");
+                    System.out.print("Enter value: ");
                     String value = br.readLine();
                     try {
                         UpdateRoomInformation(stmt, id, number, parameter, value);
@@ -769,36 +775,31 @@ public class TasksAndOperations extends Wolfinn {
 
     // This function is used to update hotel info
     static void UpdateHotelInformation(Statement stmt, String hotel_id, String parameter, String value) throws SQLException {
-
-        System.out.println("Updating Hotel information with Hotel ID :'" + hotel_id);
         stmt.executeUpdate("UPDATE hotels SET " + parameter + " = '" + value + "' where hotel_id = '" + hotel_id + "';");
     }
 
     // This function is used to delete hotel info
     static void DeleteHotelInformation(Statement stmt, String hotel_id) throws SQLException {
-
-        System.out.println("Deleting Hotel Information with Hotel ID: '" + hotel_id);
         stmt.execute("DELETE from hotels WHERE hotel_id='" + hotel_id + "';");
     }
 
-    static void AddressGivesCity(Statement stmt. String address, String city) throws SQLException{
+    static void AddressGivesCity(Statement stmt, String address, String city) throws SQLException{
 
-        System.out.println("Adding new hotel address to address_gives_city table")
+        System.out.println("Adding new hotel address to address_gives_city table");
         stmt.execute("INSERT INTO address_gives_city(address, city) VALUES ('" + address + "', '" + city + "');");
     }
 
     // This function is used to enter room info
     static void EnterRoomInformation(Statement stmt, String room_number, String category, int rate, boolean availability, String max_occupancy, String hotel_id) throws SQLException {
-
-        System.out.println("Adding a new Room to Hotel ID:'" + hotel_id);
         stmt.execute("INSERT INTO rooms(room_number, category, rate, availability, max_occupancy, hotel_id) VALUES('" + room_number + "','" + category + "', '" + rate + "', " + availability + ", '" + max_occupancy + "', '" + hotel_id + "');");
     }
 
     // This function is used to update room info
     static void UpdateRoomInformation(Statement stmt, String hotel_id, String room_number, String parameter, String value) throws SQLException {
 
-        System.out.println("Updating Room Information for Hotel ID: '" + hotel_id + "' and Room number'" + room_number);
+        System.out.println("\nUpdating Room Information for Hotel ID: '" + hotel_id + "' and Room number'" + room_number);
         stmt.executeUpdate("UPDATE rooms SET " + parameter + " = '" + value + "' where room_number = '" + room_number + "' AND hotel_id = '" + hotel_id + "';");
+        System.out.println("Updated Successfully");
     }
 
     // This function is used to delete room info
@@ -916,7 +917,7 @@ public class TasksAndOperations extends Wolfinn {
     // This function is used to add a new service
     static void AddNewService(Statement stmt, String service_name, String price) throws SQLException {
         System.out.println("Adding a new service");
-        stmt.execute("INSERT INTO services(name, price) values('" + service_name + "', '" + price + "';");
+        stmt.execute("INSERT INTO services(name, price) values('" + service_name + "', '" + price + "');");
     }
 
     // This function is used to update a service
@@ -975,7 +976,7 @@ public class TasksAndOperations extends Wolfinn {
     static ResultSet ReportOccupancyByCity(Statement stmt) throws SQLException {
 
         System.out.println("Report occupancy by city");
-        ResultSet rs = stmt.executeQuery("select address_gives_city.city, coalesce(sum(number_of_guests), 0) as total_guests from check_in inner join staff on check_in.staff_id = staff.staff_id inner join hotels on staff.hotel_id = hotels.hotel_id inner join address_gives_city on hotels.hotel_address = address_gives_city.address where check_in_date_time < '2017-05-12' and check_out_date_time > '2017-05-12' group by address_gives_city.city;");
+        ResultSet rs = stmt.executeQuery("select address_gives_city.city, coalesce(sum(number_of_guests), 0) as total_guests from check_in inner join staff on check_in.staff_id = staff.staff_id inner join hotels on staff.hotel_id = hotels.hotel_id inner join address_gives_city on hotels.hotel_address = address_gives_city.address where check_in_date_time < now() and check_out_date_time > now() group by address_gives_city.city;");
         return rs;
     }
 
@@ -983,7 +984,7 @@ public class TasksAndOperations extends Wolfinn {
     static ResultSet ReportTotalOccupancy(Statement stmt) throws SQLException {
 
         System.out.println("Report total occupancy");
-        ResultSet rs = stmt.executeQuery("select coalesce(sum(number_of_guests), 0) as total_guests from check_in where check_in_date_time < '2017-05-11' and check_out_date_time > '2017-05-11';");
+        ResultSet rs = stmt.executeQuery("select coalesce(sum(number_of_guests), 0) as total_guests from check_in where check_in_date_time < now() and check_out_date_time > now();");
         return rs;
     }
 

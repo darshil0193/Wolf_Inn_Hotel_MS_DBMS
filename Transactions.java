@@ -120,6 +120,8 @@ public class Transactions {
 		System.out.println("Enter check-in id");
 		String check_in_id= br.readLine();
 
+		statement.execute("UPDATE check_in SET check_out_date_time = now() where check_in_id = " + check_in_id);
+
 		statement.execute("( select name, quantity * price as amount from check_in " +
 				"INNER JOIN check_in_services ON check_in.check_in_id = check_in_services.check_in_id " +
 				"INNER JOIN services ON services.service_id = check_in_services.service_id " +
